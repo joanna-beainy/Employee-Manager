@@ -34,7 +34,7 @@ function Employee({ employee }: { employee: EmployeeType}) {
   
 
   return (
-    <tr className="hover:bg-slate-50/70 transition-colors group">
+    <tr className="hover:bg-slate-50/70">
       <td className="px-5 py-4">
         <div className="flex items-center gap-3">
           <div className={`w-9 h-9 rounded-full ${randomStyle} flex items-center justify-center text-xs font-bold flex-shrink-0`}>
@@ -60,14 +60,14 @@ function Employee({ employee }: { employee: EmployeeType}) {
           <button
             onClick={() => editEmployee(employee._id)}
             title="Edit"
-            className="w-8 h-8 flex items-center justify-center rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-500 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-500"
           >
             <i className="fa-solid fa-pen-to-square text-xs" />
           </button>
           <button
             onClick={() => deleteEmployee(employee._id)}
             title="Delete"
-            className="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 hover:bg-red-100 text-red-400 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 hover:bg-red-100 text-red-400"
           >
             <i className="fa-solid fa-trash text-xs" />
           </button>

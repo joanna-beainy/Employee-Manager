@@ -12,7 +12,16 @@ function App() {
   }, []);
 
   const totalSalary = employees.reduce((total, e) => total + e.salary, 0);
-  const departments = new Set(employees.map((e) => e.department)).size;
+  const uniqueDepartments: string[] = [];
+
+  for (const employee of employees) {
+    if (!uniqueDepartments.includes(employee.department)) {
+      uniqueDepartments.push(employee.department);
+    }
+  }
+
+  const departments = uniqueDepartments.length;
+
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -29,15 +38,15 @@ function App() {
           </div>
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors shadow-sm"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm"
           >
             <i className="fa-solid fa-plus" />
             Add Employee
           </button>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-6">
-          <div className=" flex-1 bg-blue-50 border border-blue-100 rounded-xl p-5 flex items-center gap-4">
+        <div className="flex flex-wrap gap-4 mb-6">
+          <div className=" flex-1 bg-blue-50 border border-blue-200 rounded-xl p-5 flex items-center gap-4">
             <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
               <i className="fa-solid fa-user-tie text-blue-600" />
             </div>
@@ -46,7 +55,7 @@ function App() {
               <p className="text-2xl font-bold text-blue-700">{employees.length}</p>
             </div>
           </div>
-          <div className=" flex-1 bg-violet-50 border border-violet-100 rounded-xl p-5 flex items-center gap-4">
+          <div className=" flex-1 bg-violet-50 border border-violet-200 rounded-xl p-5 flex items-center gap-4">
             <div className="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center">
               <i className="fa-solid fa-building text-violet-600" />
             </div>
@@ -55,7 +64,7 @@ function App() {
               <p className="text-2xl font-bold text-violet-700">{departments}</p>
             </div>
           </div>
-          <div className=" flex-1 bg-emerald-50 border border-emerald-100 rounded-xl p-5 flex items-center gap-4">
+          <div className=" flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-5 flex items-center gap-4">
             <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
               <i className="fa-solid fa-sack-dollar text-emerald-600" />
             </div>

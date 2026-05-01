@@ -48,13 +48,13 @@ function AddEmployeePopup() {
           <button
             type="button"
             onClick={closeModal}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100"
           >
             <i className="fa-solid fa-xmark" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="px-6 py-5 space-y-4">
+        <form onSubmit={handleSubmit} className="px-6 py-5 flex flex-col gap-4">
 
           <div>
             <label className="flex items-center gap-1.5 text-sm font-semibold text-slate-700 mb-2">
@@ -67,7 +67,7 @@ function AddEmployeePopup() {
               onChange={(e) => setName(e.target.value)}
               required
               placeholder="e.g. Sarah"
-              className="w-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl bg-gray-50 px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 outline-none transition-all"
+              className="w-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl bg-gray-50 px-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 outline-none"
             />
           </div>
 
@@ -81,7 +81,7 @@ function AddEmployeePopup() {
                 value={position}
                 onChange={(e) => setPosition(e.target.value)}
                 required
-                className="w-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl bg-gray-50 px-4 py-2.5 text-sm text-slate-800 outline-none transition-all appearance-none cursor-pointer"
+                className="w-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl bg-gray-50 px-4 py-2.5 text-sm text-slate-800 outline-none appearance-none cursor-pointer"
               >
                 <option value="">Select a position…</option>
                 {POSITIONS.map((p) => (
@@ -104,7 +104,7 @@ function AddEmployeePopup() {
                 value={department}
                 onChange={(e) => setDepartment(e.target.value)}
                 required
-                className="w-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl bg-gray-50 px-4 py-2.5 text-sm text-slate-800 outline-none transition-all appearance-none cursor-pointer"
+                className="w-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl bg-gray-50 px-4 py-2.5 text-sm text-slate-800 outline-none appearance-none cursor-pointer"
               >
                 <option value="">Select a department…</option>
                 {DEPARTMENTS.map((d) => (
@@ -131,7 +131,7 @@ function AddEmployeePopup() {
                 required
                 min={0}
                 placeholder="5,000"
-                className="w-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl bg-gray-50 pl-8 pr-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 outline-none transition-all"
+                className="w-full border border-slate-200 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 rounded-xl bg-gray-50 pl-8 pr-4 py-2.5 text-sm text-slate-800 placeholder-slate-400 outline-none"
               />
             </div>
           </div>
@@ -139,7 +139,7 @@ function AddEmployeePopup() {
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-2xl transition-colors shadow-sm"
+              className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2.5 rounded-2xl shadow-sm"
             >
               <i className={`fa-solid ${EmployeeBeingEdited ? 'fa-floppy-disk' : 'fa-user-plus'} text-xs`} />
               {EmployeeBeingEdited ? 'Save Changes' : 'Add Employee'}
