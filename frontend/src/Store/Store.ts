@@ -87,13 +87,13 @@ export const useEmployeeStore = create<EmployeeStore>((set, get) => ({
 
   SaveEmployee: async (name, position, department, salary) => {
     try {
-      const state = get();
-      if (state.EmployeeBeingEdited && state.EmployeeBeingEdited._id) {
-        await axios.put(`${API_URL}/${state.EmployeeBeingEdited._id}`, { name, position, department, salary });
+      const { EmployeeBeingEdited, fetchEmployees} = get();
+      if (EmployeeBeingEdited && EmployeeBeingEdited._id) {
+        await axios.put(`${API_URL}/${EmployeeBeingEdited._id}`, { name, position, department, salary });
       } else {
         await axios.post(API_URL, { name, position, department, salary });
       }
-      await get().fetchEmployees();
+      await fetchEmployees();
       set({
         showModal: false,
         EmployeeBeingEdited: null,
@@ -105,7 +105,8 @@ export const useEmployeeStore = create<EmployeeStore>((set, get) => ({
   },
 
   editEmployee: (id) => {
-    const employeeToEdit = get().employees.find((emp) => emp._id === id);
+    const { employees } = get();
+    const employeeToEdit = employees.find((emp) => emp._id === id);
     if (employeeToEdit) {
       set({
         EmployeeBeingEdited: employeeToEdit,
@@ -119,9 +120,10 @@ export const useEmployeeStore = create<EmployeeStore>((set, get) => ({
   },
 
   deleteEmployee: async (id) => {
+    const {fetchEmployees} = get();
     try {
       await axios.delete(`${API_URL}/${id}`);
-      await get().fetchEmployees();
+      await fetchEmployees();
     } catch (error) {
       console.error("Error deleting employee:", error);
     }

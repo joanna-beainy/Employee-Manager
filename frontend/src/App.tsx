@@ -55,13 +55,13 @@ function App() {
               <p className="text-2xl font-bold text-blue-700">{employees.length}</p>
             </div>
           </div>
-          <div className=" flex-1 bg-red-50 border border-red-200 rounded-xl p-5 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
-              <i className="fa-solid fa-building text-red-600" />
+          <div className=" flex-1 bg-violet-50 border border-violet-200 rounded-xl p-5 flex items-center gap-4">
+            <div className="w-10 h-10 rounded-lg bg-violet-100 flex items-center justify-center">
+              <i className="fa-solid fa-building text-violet-600" />
             </div>
             <div>
-              <p className="text-xs font-semibold text-red-400 uppercase tracking-wider">Departments</p>
-              <p className="text-2xl font-bold text-red-700">{departments}</p>
+              <p className="text-xs font-semibold text-violet-400 uppercase tracking-wider">Departments</p>
+              <p className="text-2xl font-bold text-violet-700">{departments}</p>
             </div>
           </div>
           <div className=" flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-5 flex items-center gap-4">
